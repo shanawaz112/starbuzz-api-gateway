@@ -92,7 +92,7 @@ proxyConfig.forEach((config) => {
         );
         res.status(504).send("Gateway Timeout");
       },
-      secure: true, // Ensure secure connections to the target
+    //   secure: true, // Ensure secure connections to the target
     })
   );
 });
