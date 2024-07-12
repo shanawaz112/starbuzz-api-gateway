@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 const winston = require("winston");
 const axios = require("axios");
 require("dotenv").config();
+// const https = require("https");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -92,7 +93,7 @@ proxyConfig.forEach((config) => {
         );
         res.status(504).send("Gateway Timeout");
       },
-    //   secure: true, // Ensure secure connections to the target
+        secure: true, // Ensure secure connections to the target
     })
   );
 });
@@ -128,7 +129,13 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!");
 });
 
-// Create HTTPS server (if you want your local API Gateway to also support HTTPS)
+// // Create HTTPS credentials
+// const credentials = {
+//   key: process.env.HTTPS_KEY,
+//   cert: process.env.HTTPS_CERT,
+// };
+
+// // Create HTTPS server (if you want your local API Gateway to also support HTTPS)
 // const httpsServer = https.createServer(credentials, app);
 
 // For local development without HTTPS, use HTTP server
