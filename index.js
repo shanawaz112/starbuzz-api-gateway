@@ -10,7 +10,7 @@ require("dotenv").config();
 // const https = require("https");
 
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // Use Helmet for security
